@@ -1,1 +1,60 @@
 @import '/bower_components/bootstrap/dist/css/bootstrap.css';
+
+.list {
+	list-style: none outside none;
+	margin: 10px 0 30px;
+}
+
+.item {
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 2px solid #444;
+	border-radius: 5px;
+	background-color: #EA8A8A;
+
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center;
+	cursor: move;
+}
+
+.app-editor {
+  border: 1px solid #999;
+  padding: 16px 32px;
+  border-radius: 8px;
+
+  .history {
+    margin-bottom: 8px;
+
+    p {
+      background: #696;
+      padding: 8px 16px;
+      color: #fff;
+      text-shadow: 0 -1px #333;
+      border-radius: 8px;
+      border-bottom: 4px solid #363;
+
+      white-space: pre-wrap;
+      margin: 0;
+    }
+
+    textarea {
+      border: 2px dashed #363;
+      padding: 8px 16px;
+      border-radius: 8px;
+      width: 100%;
+      outline: none;
+      resize: none;
+    }
+
+  }
+
+  textarea {
+    margin-top: 8px;
+    border: none;
+    width: 100%;
+    outline: none;
+    resize: none;
+  }
+
+}

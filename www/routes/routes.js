@@ -1,5 +1,6 @@
 define([], function () {
   return {
-    '/': 'views/editor.html'
+    '/': 'views/editor.html',
+    '/sortable': 'views/sortable.html'
   }
 });

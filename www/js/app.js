@@ -1,12 +1,20 @@
 define([
   'angular',
   'controllers/index',
+  'directives/index',
   'routes/routes',
-  'ngRoute'
-], function (angular, controllers, routes) {
+  'ui.sortable',
+  'ngElastic',
+  'ngRoute',
+  'ngSanitize'
+], function (angular, controllers, directives, routes) {
   var app = angular.module('app', [
     controllers.name,
-    'ngRoute'
+    directives.name,
+    'ui.sortable',
+    'monospaced.elastic',
+    'ngRoute',
+    'ngSanitize'
   ]);
 
   app.config([

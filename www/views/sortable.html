@@ -1,0 +1,9 @@
+<div ng-controller="SortCtrl" class="container">
+  <div class="floatleft">
+    <ul ui-sortable ng-model="list" class="list">
+      <li ng-repeat="item in list" class="item">
+        {{item.text}}
+      </li>
+    </ul>
+  </div>
+</div>

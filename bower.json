@@ -18,6 +18,9 @@
     "angular": "~1.2.21",
     "bootstrap": "~3.2.0",
     "requirejs": "~2.1.14",
-    "less": "~1.7.4"
+    "less": "~1.7.4",
+    "angular-elastic": "~2.3.5",
+    "angular-sanitize": "~1.2.21",
+    "angular-ui-sortable": "~0.12.8"
   }
 }
