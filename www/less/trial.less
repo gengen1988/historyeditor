@@ -1,0 +1,92 @@
+body {
+  background: #eee;
+}
+
+
+.trial {
+  font-size: 16px;
+
+  -webkit-user-select: none;
+
+  @handle-width: 40px;
+  @control-width: 40px;
+
+  @round-corner: 8px;
+  @edit-border: 2px;
+
+  @base-color: #18bc9c;
+
+  @item-padding: 8px;
+  @item-margin: 8px;
+
+  @normal-shadow: @round-corner / 2;
+
+  .sortable-placeholder {
+    border: @edit-border dashed @base-color;
+    border-radius: @round-corner;
+    margin-bottom: 8px;
+  }
+
+  .wrapper {
+    padding-bottom: @item-margin;
+  }
+
+  .view {
+
+    position: relative;
+
+    background: @base-color;
+    border-radius: @round-corner;
+    border-color: @base-color;
+    border-bottom: @normal-shadow solid darken(@base-color, 5%);
+
+    padding: @item-padding + @edit-border;
+    padding-bottom: @item-padding + @edit-border - @normal-shadow ;
+
+    color: white;
+
+    //margin-bottom: @item-margin;
+
+    .handle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding: 11px 16px;
+      width: @handle-width;
+    }
+
+    .control {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 11px 16px;
+      width: @control-width;
+    }
+
+    .content {
+      margin-left: @handle-width;
+      margin-right: @control-width;
+    }
+
+    .editor {
+      width: 100%;
+      display: block;
+      resize: none;
+      outline: none;
+      background: transparent;
+      border: none;
+    }
+
+  }
+
+  .view.editing {
+    background: white;
+    color: black;
+    border: @edit-border dashed;
+    border-color: @base-color;
+    padding: @item-padding;
+  }
+
+}

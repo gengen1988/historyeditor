@@ -1,5 +1,7 @@
 @import '/bower_components/bootstrap/dist/css/bootstrap.css';
 
+@import 'trial.less';
+
 .list {
 	list-style: none outside none;
 	margin: 10px 0 30px;
@@ -26,25 +28,23 @@
   .history {
     margin-bottom: 8px;
 
-    p {
-      background: #696;
-      padding: 8px 16px;
-      color: #fff;
-      text-shadow: 0 -1px #333;
+    .text,
+		.editor {
       border-radius: 8px;
-      border-bottom: 4px solid #363;
-
-      white-space: pre-wrap;
-      margin: 0;
+			padding: 8px 16px;
+			outline: none;
+			resize: none;
     }
 
-    textarea {
+		.text {
+			background: #696;
+			color: #fff;
+			text-shadow: 0 -1px #333;
+			border-bottom: 4px solid #363;
+		}
+
+		.editor {
       border: 2px dashed #363;
-      padding: 8px 16px;
-      border-radius: 8px;
-      width: 100%;
-      outline: none;
-      resize: none;
     }
 
   }

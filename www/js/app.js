@@ -6,7 +6,8 @@ define([
   'ui.sortable',
   'ngElastic',
   'ngRoute',
-  'ngSanitize'
+  'ngSanitize',
+  'ngAnimate'
 ], function (angular, controllers, directives, routes) {
   var app = angular.module('app', [
     controllers.name,
@@ -14,7 +15,8 @@ define([
     'ui.sortable',
     'monospaced.elastic',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngAnimate'
   ]);
 
   app.config([

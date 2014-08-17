@@ -4,12 +4,13 @@
 
     <ul ui-sortable class="list-unstyled" ng-model="items">
       <li ng-mouseenter="item.hover = true" ng-mouseleave="item.hover = false" ng-repeat="item in items" class="history">
-        <p ng-click="focus(item)" ng-hide="item.editing">{{item.text}}<span ng-click="remove($index, $event)" ng-show="item.hover" class="pull-right glyphicon glyphicon-trash"></span></p>
-        <textarea focus-state="item.editing" ng-show="item.editing" ng-keypress="checkUpdate($event, item)" ng-model="item.text" msd-elastic placeholder="在这里撰写历史"></textarea>
+        <!-- FIXME: merge to on textarea -->
+        <!-- <textarea class="text" readonly ng-click="focus(item, this)" msd-elastic ng-hide="item.editing" ng-model="item.text"></textarea> -->
+        <textarea ng-focus="focus(item)" ng-blur="blur(item)" ng-class="{editor: item.editing, text: !item.editing}" ng-keypress="checkUpdate($event, item)" ng-model="item.text" msd-elastic></textarea>
       </li>
     </ul>
 
-    <textarea ng-focus="blur()" ng-keypress="checkAdd($event)" ng-model="text" msd-elastic placeholder="在这里撰写历史"></textarea>
+    <textarea ng-focus="editing = true" ng-blur="editing = false" focus-state="editing" ng-keypress="checkAdd($event)" ng-model="text" msd-elastic placeholder="在这里撰写历史"></textarea>
 
   </div>
 

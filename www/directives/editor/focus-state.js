@@ -3,11 +3,19 @@ define([
 ], function (directives) {
   directives.directive('focusState', ['$timeout', function ($timeout) {
     return {
-      scope: {trigger: '=focusState'},
+      restrict: 'A',
+      scope: {
+        trigger: '=focusState'
+      },
       link: function (scope, element) {
-        scope.$watch('trigger', function (value) {
-          if (value === true) {
-            element[0].focus();
+        var el = element[0];
+        scope.$watch('trigger', function (newValue, oldValue) {
+          var end = el.value.length;
+          if (newValue) {
+            $timeout(function () {
+              el.focus();
+              el.setSelectionRange(end, end);
+            });
           }
         });
       }

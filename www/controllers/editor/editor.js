@@ -3,15 +3,44 @@ define([
 ], function (controllers) {
   controllers.controller('EditorCtrl', [
     '$scope',
-  function ($scope) {
+    '$document',
+    '$timeout',
+  function ($scope, $document, $timeout) {
+
+    $scope.greenFrame = false;
+
+    $document.bind('keypress', function (event) {
+
+      $scope.$apply(function () {
+        console.log($scope);
+
+        if (!$scope.text) {
+          $scope.text = '';
+        }
+        if (!$scope.editing) {
+          if ($scope.greenFrame) {
+            return;
+          }
+
+          // FIXME: update in green frame
+          if (event.keyCode === 10) {
+            return;
+          }
+
+          $scope.text += String.fromCharCode(event.keyCode);
+        }
+
+        $scope.editing = true;
+      });
+    });
 
     $scope.items = [{
       text: '后面有个冰柜'
     }];
 
     var update = function (item) {
-      var items = $scope.items;
-      item.editing = false;
+      $scope.blur();
+      $scope.editing = false;
     };
 
     var create = function () {
@@ -50,18 +79,13 @@ define([
     };
 
     $scope.focus = function (item) {
-      var items = $scope.items;
-
-      angular.forEach($scope.items, function (item) {
-        item.editing = false;
-      });
       item.editing = true;
+      $scope.greenFrame = true;
     };
 
-    $scope.blur = function () {
-      angular.forEach($scope.items, function (item) {
-        item.editing = false;
-      });
+    $scope.blur = function (item) {
+      item.editing = false;
+      $scope.greenFrame = false;
     };
 
     $scope.remove = function (index, evt) {
